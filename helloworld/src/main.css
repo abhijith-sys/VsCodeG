@@ -1,0 +1,46 @@
+#board {
+    border: 2px solid black;
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cell {
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 80px;
+  }
+  
+  .cell:hover {
+    background-color: #eee;
+  }
+  
+  .cell:not(.occupied):hover {
+    cursor: pointer;
+  }
+  
+  .x {
+    color: red;
+    font-size: 60px;
+  }
+  
+  .o {
+    color: blue;
+    font-size: 60px;
+  }
+  
+  #result {
+    font-size: 30px;
+    margin: 20px;
+    text-align: center;
+  }
+  
