@@ -142,7 +142,7 @@ function activate(context) {
         }
         </script>
         <script type="module" src=${threejsScript}></script>
-        <script type="module" src=${mainScript}></script>
+        <script  src=${mainScript}></script>
     </head>
        
     <body>
