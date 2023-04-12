@@ -57,9 +57,11 @@ function activate(context) {
         const htmlPath = vscode.Uri.joinPath(context.extensionUri, "media", "index.html");
         const stylePath = vscode.Uri.joinPath(context.extensionUri, "media", "style.css");
         const scriptPath = vscode.Uri.joinPath(context.extensionUri, "media", "main.js");
+        const threejsScriptPath = vscode.Uri.joinPath(context.extensionUri, "media", "threejs.js");
         const htmlContent = panel.webview.asWebviewUri(htmlPath);
         const styleContent = panel.webview.asWebviewUri(stylePath);
         const mainScript = panel.webview.asWebviewUri(scriptPath);
+        const threejsScript = panel.webview.asWebviewUri(threejsScriptPath);
         // panel.webview.html = `<!DOCTYPE html>
         //   <html lang="en">
         //   <head>
@@ -130,13 +132,23 @@ function activate(context) {
        
         <link rel="stylesheet" href="${styleContent}">
        
-        <script src=${mainScript}></script>
+        <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+        
+        <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@0.151.3/build/three.module.js"
+          }
+        }
+        </script>
+        <script type="module" src=${threejsScript}></script>
+        <script type="module" src=${mainScript}></script>
     </head>
        
     <body>
         <div id="main">
             <h1>TIC TAC TOE</h1>
-       
+        <div id="canvas"></div>
             <!-- Game Instructions -->
             <p id="ins">Game starts by just Tap on 
                 box<br><br>First Player starts as 

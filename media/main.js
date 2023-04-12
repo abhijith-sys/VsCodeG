@@ -1,13 +1,5 @@
-let playerSymbol;
-let enemySymbol;
-let win; // TRUE if somebody won the game
-let turn; // Number of the current turn
-let row, column; // Will contain "coordinates"for a specific cell
-let cpuEnabled = true; // Set this to false to play against a human
 console.clear();
 console.log("here in the code");
-console.log(document);
-
 function myfunc() {
  
     // Setting DOM to all boxes or input field
