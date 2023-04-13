@@ -121,7 +121,8 @@ export function activate(context: vscode.ExtensionContext) {
         <script type="importmap">
         {
           "imports": {
-            "three": "https://unpkg.com/three@0.151.3/build/three.module.js"
+            "three": "https://unpkg.com/three@0.151.3/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.151.3/examples/jsm/"
           }
         }
         </script>
