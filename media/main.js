@@ -1,9 +1,9 @@
 console.clear();
-console.log("here in the code");
+let flag = 1;
 function myfunc() {
  
     // Setting DOM to all boxes or input field
-    var b1, b2, b3, b4, b5, b6, b7, b8, b9;
+    let b1, b2, b3, b4, b5, b6, b7, b8, b9;
     b1 = document.getElementById("b1").value;
     b2 = document.getElementById("b2").value;
     b3 = document.getElementById("b3").value;
@@ -127,7 +127,6 @@ function myfunc() {
         document.getElementById("b7").disabled = true;
         document.getElementById("b8").disabled = true;
         document.getElementById("b9").disabled = true;
-        window.alert('Player 0 won');
     }
     else if ((b1 == '0' || b1 == '0') && (b4 == '0' ||
         b4 == '0') && (b7 == '0' || b7 == '0')) {
@@ -139,7 +138,6 @@ function myfunc() {
         document.getElementById("b6").disabled = true;
         document.getElementById("b8").disabled = true;
         document.getElementById("b9").disabled = true;
-        window.alert('Player 0 won');
     }
     else if ((b7 == '0' || b7 == '0') && (b8 == '0' ||
         b8 == '0') && (b9 == '0' || b9 == '0')) {
@@ -151,7 +149,6 @@ function myfunc() {
         document.getElementById("b4").disabled = true;
         document.getElementById("b5").disabled = true;
         document.getElementById("b6").disabled = true;
-        window.alert('Player 0 won');
     }
     else if ((b3 == '0' || b3 == '0') && (b6 == '0' ||
         b6 == '0') && (b9 == '0' || b9 == '0')) {
@@ -163,7 +160,6 @@ function myfunc() {
         document.getElementById("b5").disabled = true;
         document.getElementById("b7").disabled = true;
         document.getElementById("b8").disabled = true;
-        window.alert('Player 0 won');
     }
     else if ((b1 == '0' || b1 == '0') && (b5 == '0' ||
         b5 == '0') && (b9 == '0' || b9 == '0')) {
@@ -175,7 +171,6 @@ function myfunc() {
         document.getElementById("b6").disabled = true;
         document.getElementById("b7").disabled = true;
         document.getElementById("b8").disabled = true;
-        window.alert('Player 0 won');
     }
     else if ((b3 == '0' || b3 == '0') && (b5 == '0' ||
         b5 == '0') && (b7 == '0' || b7 == '0')) {
@@ -187,7 +182,6 @@ function myfunc() {
         document.getElementById("b6").disabled = true;
         document.getElementById("b8").disabled = true;
         document.getElementById("b9").disabled = true;
-        window.alert('Player 0 won');
     }
     else if ((b2 == '0' || b2 == '0') && (b5 == '0' ||
         b5 == '0') && (b8 == '0' || b8 == '0')) {
@@ -199,7 +193,6 @@ function myfunc() {
         document.getElementById("b6").disabled = true;
         document.getElementById("b7").disabled = true;
         document.getElementById("b9").disabled = true;
-        window.alert('Player 0 won');
     }
     else if ((b4 == '0' || b4 == '0') && (b5 == '0' ||
         b5 == '0') && (b6 == '0' || b6 == '0')) {
@@ -211,7 +204,6 @@ function myfunc() {
         document.getElementById("b7").disabled = true;
         document.getElementById("b8").disabled = true;
         document.getElementById("b9").disabled = true;
-        window.alert('Player 0 won');
     }
  
     // Checking of Player 0 finish
@@ -242,7 +234,7 @@ function myfunc() {
  
 // Function to reset game
 function myfunc_2() {
-    location.reload()
+    // location.reload()
     document.getElementById('b1').value = '';
     document.getElementById("b2").value = '';
     document.getElementById("b3").value = '';
@@ -252,12 +244,25 @@ function myfunc_2() {
     document.getElementById("b7").value = '';
     document.getElementById("b8").value = '';
     document.getElementById("b9").value = '';
- 
+    flag=1;
+    document.getElementById('print').innerHTML="";
+    document.getElementById("b1").disabled = false;
+    document.getElementById("b2").disabled = false;
+    document.getElementById("b3").disabled = false;
+    document.getElementById("b4").disabled = false;
+    document.getElementById("b5").disabled = false;
+    document.getElementById("b6").disabled = false;
+    document.getElementById("b7").disabled = false;
+    document.getElementById("b8").disabled = false;
+    document.getElementById("b9").disabled = false;
+
+
+
 }
  
 // Here onwards, functions check turn of the player
 // and put accordingly value X or 0
-flag = 1;
+
 function myfunc_3() {
     if (flag == 1) {
         document.getElementById("b1").value = "X";

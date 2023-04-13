@@ -108,7 +108,7 @@ export function activate(context: vscode.ExtensionContext) {
     //   </body>
     //   <script src=${mainScript}></script>
     //   </html>`;
-    panel.webview.html = `<!DOCTYPE html>
+    const htmlTemplate = `<!DOCTYPE html>
    
     <head>
         <meta name="viewport" content=
@@ -191,7 +191,8 @@ export function activate(context: vscode.ExtensionContext) {
         </div>
     </body>
        
-    </html>`;
+    </!DOCTYPE>`;
+    panel.webview.html = htmlTemplate;
   }
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
