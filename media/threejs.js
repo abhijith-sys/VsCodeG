@@ -10,7 +10,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 myCanvas.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
