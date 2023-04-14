@@ -17,6 +17,31 @@
         "command": "tictac.helloWorld",
         "title": "Hello World"
       }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "tictac",
+          "title": "tic tac",
+          "icon": "./icon.svg",
+          "command": "tictac.helloWorld"
+        }
+      ]
+    },
+    "views": {
+      "tictac": [
+        {
+          "id": "tictac",
+          "name": "gameController",
+          "icon": "./icon.svg"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "tictac",
+        "contents": "game in development ,currently in pre-alpha state and hopping this will materialize \n By team UNKNOWN"
+      }
     ]
   },
   "scripts": {
