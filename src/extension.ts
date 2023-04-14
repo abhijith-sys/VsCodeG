@@ -17,32 +17,20 @@ export function activate(context: vscode.ExtensionContext) {
       }
     );
 
-    const htmlPath = vscode.Uri.joinPath(
-      context.extensionUri,
-      "media",
-      "index.html"
-    );
     const stylePath = vscode.Uri.joinPath(
       context.extensionUri,
       "media",
       "style.css"
-    );
-    const scriptPath = vscode.Uri.joinPath(
-      context.extensionUri,
-      "media",
-      "main.js"
     );
     const threejsScriptPath = vscode.Uri.joinPath(
       context.extensionUri,
       "media",
       "threejs.js"
     );
-    const htmlContent = panel.webview.asWebviewUri(htmlPath);
     const styleContent = panel.webview.asWebviewUri(stylePath);
 
-    const mainScript = panel.webview.asWebviewUri(scriptPath);
     const threejsScript = panel.webview.asWebviewUri(threejsScriptPath);
-
+    // <h1>TIC TAC TOE</h1>
     const htmlTemplate = `
     <!DOCTYPE html>
 
@@ -62,52 +50,10 @@ export function activate(context: vscode.ExtensionContext) {
         }
         </script>
       <script type="module" src=${threejsScript}></script>
-      <script src=${mainScript}></script>
     </head>
     
     <body>
-      <div id="main">
-        <h1>TIC TAC TOE</h1>
-        <div id="canvas"></div>
-        <!-- Game Instructions -->
-        <p id="ins">Game starts by just Tap on
-          box<br><br>First Player starts as
-          <b>Player X</b><br>And<br>Second
-          Player as <b>Player 0</b>
-        </p>
-        <br><br>
-        <!-- 3*3 grid of Boxes -->
-        <input type="text" id="b1" onclick="myfunc_3(); myfunc();" readonly>
-    
-        <input type="text" id="b2" onclick="myfunc_4(); myfunc();" readonly>
-    
-        <input type="text" id="b3" onclick="myfunc_5(); myfunc();" readonly>
-        <br><br>
-    
-        <input type="text" id="b4" onclick="myfunc_6(); myfunc();" readonly>
-    
-        <input type="text" id="b5" onclick="myfunc_7(); myfunc();" readonly>
-    
-        <input type="text" id="b6" onclick="myfunc_8(); myfunc();" readonly>
-        <br><br>
-    
-        <input type="text" id="b7" onclick="myfunc_9(); myfunc();" readonly>
-    
-        <input type="text" id="b8" onclick="myfunc_10();myfunc();" readonly>
-    
-        <input type="text" id="b9" onclick="myfunc_11();myfunc();" readonly>
-    
-        <!-- Grid end here  -->
-        <br><br><br>
-        <!-- Button to reset game -->
-        <button id="but" onclick="myfunc_2()">
-          RESET
-        </button>
-    
-        <br><br>
-        <!-- Space to show player turn -->
-        <p id="print"></p>
-      </div>
+    <h1 id="gameresult"></h1>
     </body>
     
     </html>
@@ -122,7 +68,8 @@ export function activate(context: vscode.ExtensionContext) {
         content="default-src 'none'; script-src 'self' vscode-resource:; style-src 'self' vscode-resource: 'unsafe-inline'; img-src vscode-resource: data:;">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <base href="${panel.webview.asWebviewUri(
-          vscode.Uri.file(context.asAbsolutePath(" media/tic/dist/")) )}" />
+        vscode.Uri.file(context.asAbsolutePath("media/tic/dist/"))
+      )}" />
       <title>My React Panel</title>
       <link rel="stylesheet" href="assets/index.css" />
     </head>
@@ -131,7 +78,7 @@ export function activate(context: vscode.ExtensionContext) {
       <div id="root"></div>
       <script src="assets/index.js"></script>
     </body>
-    
+    <div id="canvas"></div>
     </html>
 `;
     panel.webview.html = htmlTemplate;
@@ -148,7 +95,7 @@ export function activate(context: vscode.ExtensionContext) {
     // Display a message box to the user
 
     createWebviewPanel(context);
-    vscode.window.showInformationMessage("!!!!!!!!!!!!!  new Game !");
+    vscode.window.showInformationMessage("TIC TAC TOE ! new Game !");
   });
 
   context.subscriptions.push(disposable);
